@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Search For A Value</title>
+    <title>Search for a Value</title>
 </head>
 <body>
     <h1>Search for a Value</h1>
@@ -21,11 +21,20 @@
     <script>
         function searchValue() {
             let arrayText = document.getElementById("arrayInput").value;
-            let arr = arrayText.split(",");
 
-            for (let i = 0; i < arr.length; i++) {
-                arr[i] = arr[i].trim();
+            let arr = [];
+            let currentValue = "";
+
+            for (let i = 0; i < arrayText.length; i++) {
+                let ch = arrayText[i];
+                if (ch === ",") {
+                    arr.push(currentValue.trim());
+                    currentValue = "";
+                } else {
+                    currentValue += ch;
+                }
             }
+            arr.push(currentValue.trim());
 
             let searchVal = document.getElementById("searchInput").value.trim();
 
