@@ -1,3 +1,11 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search Array</title>
+</head>
+<body>
+
+<script>
 let arraySize = parseInt(prompt("Enter the number of elements in the array:"));
 let arr = [];
 
@@ -9,7 +17,6 @@ for (let i = 0; i < arraySize; i++) {
 console.log("Array entered: " + arr);
 
 let searchValue = prompt("Enter the value you want to search for:");
-
 let found = false;
 let foundIndex = -1;
 
@@ -22,7 +29,11 @@ for (let i = 0; i < arr.length; i++) {
 }
 
 if (found) {
-    console.log("Value \"" + searchValue + "\" found at index " + foundIndex + ".");
+    console.log('Value "' + searchValue + '" found at index ' + foundIndex + '.');
 } else {
-    console.log("Value \"" + searchValue + "\" does not exist in the array.");
+    console.log('Value "' + searchValue + '" does not exist in the array.');
 }
+</script>
+
+</body>
+</html>
