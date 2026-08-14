@@ -1,0 +1,28 @@
+let arraySize = parseInt(prompt("Enter the number of elements in the array:"));
+let arr = [];
+
+for (let i = 0; i < arraySize; i++) {
+    let value = prompt("Enter element " + (i + 1) + ":");
+    arr.push(value);
+}
+
+console.log("Array entered: " + arr);
+
+let searchValue = prompt("Enter the value you want to search for:");
+
+let found = false;
+let foundIndex = -1;
+
+for (let i = 0; i < arr.length; i++) {
+    if (arr[i] == searchValue) {
+        found = true;
+        foundIndex = i;
+        break;
+    }
+}
+
+if (found) {
+    console.log("Value \"" + searchValue + "\" found at index " + foundIndex + ".");
+} else {
+    console.log("Value \"" + searchValue + "\" does not exist in the array.");
+}
