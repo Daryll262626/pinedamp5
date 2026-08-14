@@ -1,39 +1,54 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Search Array</title>
+    <title>Search for a Value</title>
 </head>
 <body>
+    <h1>Search for a Value</h1>
 
-<script>
-let arraySize = parseInt(prompt("Enter the number of elements in the array:"));
-let arr = [];
+    <p>Enter array values (separated by commas):</p>
+    <input type="text" id="arrayInput">
 
-for (let i = 0; i < arraySize; i++) {
-    let value = prompt("Enter element " + (i + 1) + ":");
-    arr.push(value);
-}
+    <p>Enter value to search:</p>
+    <input type="text" id="searchInput">
 
-console.log("Array entered: " + arr);
+    <br><br>
+    <button onclick="searchValue()">Search</button>
 
-let searchValue = prompt("Enter the value you want to search for:");
-let found = false;
-let foundIndex = -1;
+    <h2>Result:</h2>
+    <p id="result"></p>
 
-for (let i = 0; i < arr.length; i++) {
-    if (arr[i] == searchValue) {
-        found = true;
-        foundIndex = i;
-        break;
-    }
-}
+    <script>
+        function searchValue() {
+            let arrayText = document.getElementById("arrayInput").value;
+            let arr = arrayText.split(",");
 
-if (found) {
-    console.log('Value "' + searchValue + '" found at index ' + foundIndex + '.');
-} else {
-    console.log('Value "' + searchValue + '" does not exist in the array.');
-}
-</script>
+            for (let i = 0; i < arr.length; i++) {
+                arr[i] = arr[i].trim();
+            }
 
+            let searchVal = document.getElementById("searchInput").value.trim();
+
+            let found = false;
+            let foundIndex = -1;
+
+            for (let i = 0; i < arr.length; i++) {
+                if (arr[i] == searchVal) {
+                    found = true;
+                    foundIndex = i;
+                    break;
+                }
+            }
+
+            let resultText = "";
+            if (found) {
+                resultText = 'Value "' + searchVal + '" found at index ' + foundIndex + '.';
+            } else {
+                resultText = 'Value "' + searchVal + '" does not exist in the array.';
+            }
+
+            document.getElementById("result").innerText = resultText;
+        }
+    </script>
 </body>
 </html>
